@@ -4,12 +4,10 @@ icon.setAttribute("id", "button");
 icon.setAttribute("class", "dropdown-trigger style-scope ytd-menu-renderer");
 icon.setAttribute("aria-label", "Filter menu");
 icon.setAttribute("style", `
-    background-image: url(https://cdn.pixabay.com/photo/2013/07/13/12/20/funnel-159670_960_720.png);
+    background-image: url(https://i.imgur.com/E2X0lPU.png);
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
     opacity: 0.6;
 `);
 icon.setAttribute("filter", "ruurd");
