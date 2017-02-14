@@ -4,8 +4,10 @@
     "version": "0.1",
     "content_scripts": [{
         "matches": [
-            "https://www.youtube.com/feed/subscriptions",
-            "http://www.youtube.com/feed/subscriptions"
+            "https://youtube.com/*",
+            "http://youtube.com/*",
+            "https://www.youtube.com/*",
+            "http://www.youtube.com/*"
         ],
         "js": ["jquery.js", "content.js"]
     }],
