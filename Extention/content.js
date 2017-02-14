@@ -1,5 +1,6 @@
-//todo make icon for next to triple dots in sub list
-//clicking this icon adds filter for this channel, user then has to add a filter string
+// TODO:
+// make icon for next to triple dots in sub list
+// clicking this icon adds filter for this channel, user then has to add a filter string
 
 if (!localStorage.subFilter) {
     localStorage.subFilter = JSON.stringify({});
