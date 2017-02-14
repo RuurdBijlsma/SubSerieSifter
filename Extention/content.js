@@ -3,7 +3,11 @@
 // clicking this icon adds filter for this channel, user then has to add a filter string
 
 if (!localStorage.subFilter) {
-    localStorage.subFilter = JSON.stringify({});
+    localStorage.subFilter = JSON.stringify({
+        name1: ['regex1', 'regex2', 'regex3'],
+        name2: ['regex1', 'regex2', 'regex3'],
+        name3: ['regex1', 'regex2', 'regex3']
+    });
 }
 
 function getFilter() {
@@ -62,6 +66,8 @@ function unHideAll() {
 let lastFilterUpdateY = 0;
 window.addEventListener('scroll', () => {
     if (window.scrollY - lastFilterUpdateY > 100) {
+        lastFilterUpdateY = window.scrollY;
+        console.log('Filter all');
         filterAll();
     }
 });
@@ -93,6 +99,7 @@ function updateFilter() {
     }
 
     setFilter(filter);
+    lastFilterUpdateY = 0;
     unHideAll();
     filterAll();
 }
@@ -102,14 +109,14 @@ function getElement() {
         element = document.createElement('div');
         element.id = 'ruurd';
         element.style = `
-		    width: 700px;
-		    background-color: rgb(8, 8, 8);
-		    position: fixed;
-		    top: calc(50% - 250px);
-		    left: calc(50% - 350px);
-		    padding: 20px;
-    		color: white;
-	    `;
+            width: 700px;
+            background-color: rgb(8, 8, 8);
+            position: fixed;
+            top: calc(50% - 250px);
+            left: calc(50% - 350px);
+            padding: 20px;
+            color: white;
+        `;
 
         let filterHTML = '';
         let filters = getFilter();
@@ -121,24 +128,27 @@ function getElement() {
         }
 
         let html = `
-	    	<h1>Edit Filters</h1>
-	    	<div id='filterContainer' style="padding-top: 20px;">
-	    		${filterHTML}
-	    	</div>
-	    `;
+            <h1>Edit Filters</h1>
+            <div id='filterContainer' style="padding-top: 20px;">
+                ${filterHTML}
+            </div>
+        `;
 
         let style = document.createElement('style');
         style.innerHTML = `
-		    input.userInput {
-			    margin-right: 10px;
-			}
-			#filterContainer input {
-			    width: calc(50% - 25px);
-			    padding: 10px;
-			    border-radius: 5px;
-			    border: none;
-			}
-	    `;
+            input.userInput {
+                margin-right: 10px;
+            }
+            #filterContainer input {
+                width: calc(50% - 25px);
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+            }
+            .filterRow {
+                margin-bottom: 10px;
+            }
+        `;
         document.body.appendChild(style);
 
         element.innerHTML = html;
