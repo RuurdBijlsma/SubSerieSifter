@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Sub Serie Sifter",
+    "version": "0.1",
+    "content_scripts": [{
+        "matches": [
+            "https://www.youtube.com/feed/subscriptions",
+            "http://www.youtube.com/feed/subscriptions"
+        ],
+        "js": ["jquery.js", "content.js"]
+    }],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Sub Serie Sifter, this button does nothing"
+    }
+}
